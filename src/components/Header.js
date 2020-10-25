@@ -1,10 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import Constant from 'expo-constants'
 import { useNavigation } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function Header() {
   const navigation = useNavigation()
@@ -20,9 +22,9 @@ export default function Header() {
     }}>
       <View style={{flexDirection:"row",
     margin:5}}>
-        <AntDesign style={{
-          marginLeft:10
-        }} name="bars" size={24} color="white" />
+    <Icon.Button name='ios-menu' size={25}
+        backgroundColor='#000' onPress={() => {navigation.openDrawer()}}
+        ></Icon.Button>
         <Text style={{
           fontSize:22,
           marginLeft:5,
